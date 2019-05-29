@@ -8,12 +8,12 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
 public class FileUtil {
-    public Workbook getWorkBook(String path) throws Exception {
+    public static Workbook getWorkBook(String path) throws Exception {
         FileInputStream input = new FileInputStream(new File(path));
         return new XSSFWorkbook(input);
     }
 
-    public void writeReport(String path, Workbook workbook) throws Exception {
+    public static void writeReport(String path, Workbook workbook) throws Exception {
         FileOutputStream output = new FileOutputStream(new File(path));
         workbook.write(output);
         output.close();
