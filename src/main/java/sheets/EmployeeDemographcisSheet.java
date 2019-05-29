@@ -12,7 +12,6 @@ public class EmployeeDemographcisSheet {
     public String firstName;
     public String lastName;
     public int employeePayGrade;
-
     public String locationCode;
     public String position;
     public String jobProfile;
@@ -32,13 +31,9 @@ public class EmployeeDemographcisSheet {
     public double timeInPositionCore;
     public Date originalHireDate;
     public Date hireDate;
-
     public List<TargetJob> targetJobList;
-
     public String potentialFromPG;
-
     public List<ManagerRating> managerRatingList;
-
     public String employeeType;
     public String workingLocationAddress;
     public int workingLocationPostalCode;
@@ -209,7 +204,8 @@ public class EmployeeDemographcisSheet {
         return lengthOfServiceInYearsIncludingPartialYearPosition;
     }
 
-    public void setLengthOfServiceInYearsIncludingPartialYearPosition(double lengthOfServiceInYearsIncludingPartialYearPosition) {
+    public void setLengthOfServiceInYearsIncludingPartialYearPosition(
+            double lengthOfServiceInYearsIncludingPartialYearPosition) {
         this.lengthOfServiceInYearsIncludingPartialYearPosition = lengthOfServiceInYearsIncludingPartialYearPosition;
     }
 

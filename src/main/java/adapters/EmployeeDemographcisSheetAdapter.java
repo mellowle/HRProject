@@ -1,28 +1,17 @@
 package adapters;
 
-import common.FileUtil;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
-import sheets.EducationSheet;
 import sheets.EmployeeDemographcisSheet;
-import sheets.model.ManagerRating;
-import sheets.model.TargetJob;
-import statics.Constants;
 
-import java.util.Date;
-import java.util.List;
+public class EmployeeDemographcisSheetAdapter {
 
-public class EmployeeDemographcisSheetAdaptor {
-    public EmployeeDemographcisSheet getEmployeeDemoSheet() throws Exception{
-        Workbook workbook = FileUtil.getWorkBook(Constants.INPUT_FILE_PATH);
-        Sheet educationSheet = workbook.getSheet("Employee Demographics");
-
-        EmployeeDemographcisSheet returnedEmployeeDemoSheet = getEmployeeDemoSheetProperties(educationSheet);
-
-        return returnedEmployeeDemoSheet;
+    public EmployeeDemographcisSheet toDomain(Workbook workbook) {
+        Sheet sheet = workbook.getSheet("Employee Demographics");
+        return setProperties(sheet);
     }
 
-    private EmployeeDemographcisSheet getEmployeeDemoSheetProperties(Sheet sheet) {
+    private EmployeeDemographcisSheet setProperties(Sheet sheet) {
         EmployeeDemographcisSheet employeeDemographcisSheet = new EmployeeDemographcisSheet();
 
         employeeDemographcisSheet.setWwwid(null);
@@ -33,26 +22,30 @@ public class EmployeeDemographcisSheetAdaptor {
         employeeDemographcisSheet.setLocationCode(null);
         employeeDemographcisSheet.setPosition(null);
         employeeDemographcisSheet.setJobProfile(null);
-        employeeDemographcisSheet.setJobProfile(null);
+        employeeDemographcisSheet.setJobProfileID(null);
         employeeDemographcisSheet.setJobFunction(null);
         employeeDemographcisSheet.setJobSubFunction(null);
         employeeDemographcisSheet.setTimeType(null);
         employeeDemographcisSheet.setLegalEntityCode(null);
         employeeDemographcisSheet.setLegalEntityDescription(null);
+        employeeDemographcisSheet.setMrcCode(0);
+        employeeDemographcisSheet.setMrcDescription(null);
         employeeDemographcisSheet.setSector(null);
         employeeDemographcisSheet.setTimeInPosition(0);
+        employeeDemographcisSheet.setManagerWWID(null);
+        employeeDemographcisSheet.setManagerName(null);
         employeeDemographcisSheet.setLengthOfServiceInYearsIncludingPartialYearPosition(0);
-        employeeDemographcisSheet.setTimeInPosition(0);
+        employeeDemographcisSheet.setTimeInPositionCore(0);
         employeeDemographcisSheet.setOriginalHireDate(null);
         employeeDemographcisSheet.setHireDate(null);
         employeeDemographcisSheet.setTargetJobList(null);
         employeeDemographcisSheet.setPotentialFromPG(null);
+        employeeDemographcisSheet.setManagerRatingList(null);
         employeeDemographcisSheet.setEmployeeType(null);
         employeeDemographcisSheet.setWorkingLocationAddress(null);
         employeeDemographcisSheet.setWorkingLocationPostalCode(0);
         employeeDemographcisSheet.setPositionIsJobExempt(false);
         employeeDemographcisSheet.setPrimaryPositionisJobExempt(false);
-
 
         return employeeDemographcisSheet;
     }
