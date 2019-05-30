@@ -1,21 +1,23 @@
 package adapters;
 
 import output.Hypothesis;
-import output.model.*;
+import output.model.Compensation;
+import output.model.DemoGraphics;
+import output.model.Movement;
+import output.model.Performance;
 import sheets.EducationSheet;
 import sheets.EmployeeDemographcisSheet;
+import sheets.PerformanceRatingsSheet;
 import sheets.TalentMovementSheet;
-
-import java.util.List;
 
 public class HypothesisAdapter {
 
-    public Hypothesis toDomain(EmployeeDemographcisSheet ed, EducationSheet e, PerformanceRatingsSheetAdapter pr,
+    public Hypothesis toDomain(EmployeeDemographcisSheet ed, EducationSheet e, PerformanceRatingsSheet pr,
                                TalentMovementSheet tm) {
         return setProperties(ed, e, pr, tm);
     }
 
-    private Hypothesis setProperties(EmployeeDemographcisSheet ed, EducationSheet e, PerformanceRatingsSheetAdapter pr,
+    private Hypothesis setProperties(EmployeeDemographcisSheet ed, EducationSheet e, PerformanceRatingsSheet pr,
                                      TalentMovementSheet tm) {
         Hypothesis hypothesis = new Hypothesis();
 

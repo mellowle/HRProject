@@ -72,7 +72,7 @@ public class TalentMovementSheetAdapter {
         talentMovementSheet.setWorkingCountryChange(false);
         talentMovementSheet.setWorkingCountryAsOfStartDate(null);
         talentMovementSheet.setWorkingCountryAsOfEndDate(null);
-        talentMovementSheet.setIsJobFunctionChange(null);
+        talentMovementSheet.setIsJobFunctionChange(false);
         talentMovementSheet.setJobFunctionAsOfStartDate(null);
         talentMovementSheet.setJobFunctionAsOfEndDate(null);
         talentMovementSheet.setSectorChange(false);
