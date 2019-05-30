@@ -9,8 +9,7 @@ public class Application {
         Set<String> wwidSet = FileUtil.getWWIDSet();
         List<Hypothesis> hypothesisList = FileUtil.getHypothesisList(wwidSet);
         for (Hypothesis h : hypothesisList) {
-
+            FileUtil.getRelatedRows(h);
         }
     }
-
 }

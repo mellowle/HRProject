@@ -41,7 +41,7 @@ public class FileUtil {
 
     public static Set<String> getWWIDSet() throws Exception {
         List<String> filePaths = FileUtil.getFIlePaths(Constants.INPUT_FILE_PATH, Constants.EXCELX_FILE_EXTENSION);
-        //        filePaths.stream().forEach(System.err::println);
+                filePaths.stream().forEach(System.err::println);
 
         Set<String> wwidSet = new HashSet<>();
         //        List<String> wwidList = new ArrayList<>();
@@ -85,6 +85,9 @@ public class FileUtil {
         else if (filePath.toLowerCase().contains("rewards")) {
             columnIndex = 0;
         }
+        else if (filePath.toLowerCase().contains("movement")) {
+            columnIndex = 0;
+        }
         return columnIndex;
     }
 
@@ -99,29 +102,41 @@ public class FileUtil {
         return hypothesisList;
     }
 
-    public static Set<String> getRelatedRows() throws Exception {
+    public static RelatedRows getRelatedRows(Hypothesis hypothesis) throws Exception {
         List<String> filePaths = FileUtil.getFIlePaths(Constants.INPUT_FILE_PATH, Constants.EXCELX_FILE_EXTENSION);
-        //        filePaths.stream().forEach(System.err::println);
-
-        Set<String> wwidSet = new HashSet<>();
-        //        List<String> wwidList = new ArrayList<>();
+        String wwid = hypothesis.getWWID();
+        RelatedRows relatedRows = new RelatedRows();
+        Row row;
         for (String filePath : filePaths) {
             Workbook workbook = FileUtil.getWorkBook(filePath);
             Sheet sheet = workbook.getSheetAt(0);
-            Row row;
             // Ignore head start with index 1
             for (int i = 1; i <= sheet.getLastRowNum(); i++) {
                 row = sheet.getRow(i);
                 if (row != null) {
-                    //                    System.err.println(row.getCell(getWWIDColumn(filePath)).getStringCellValue());
-                    wwidSet.add(row.getCell(getWWIDColumn(filePath)).getStringCellValue());
-                    //                    wwidList.add(row.getCell(getWWIDColumn(filePath)).getStringCellValue());
+                    if(row.getCell(getWWIDColumn(filePath)).getStringCellValue().contains(wwid)){
+                        if (filePath.toLowerCase().contains("demographics")) {
+                            relatedRows.setEmployeeDemographcisRow(row);
+                        }
+                        else if (filePath.toLowerCase().contains("education")) {
+                            relatedRows.setEducationRow(row);
+                        }
+                        else if (filePath.toLowerCase().contains("performance")) {
+                            relatedRows.setPerformanceRatingRow(row);
+                        }
+                        else if (filePath.toLowerCase().contains("direct")) {
+                        }
+                        else if (filePath.toLowerCase().contains("transfer")) {
+                        }
+                        else if (filePath.toLowerCase().contains("rewards")) {
+                        }
+                        else if (filePath.toLowerCase().contains("movement")) {
+                            relatedRows.setTalentMovementRow(row);
+                        }
+                    }
                 }
             }
         }
-
-        //        System.err.println(wwidSet.size());
-        //        System.err.println(wwidList.size());
-        return wwidSet;
+        return relatedRows;
     }
 }
