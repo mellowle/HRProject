@@ -22,7 +22,7 @@ public class TalentMovementSheet {
     private String WorkingCountry;
     private boolean isInternationalAssignee;
     private String MRC;
-    private String timeInPosition;
+    private double timeInPosition;
     private double lengthOfService;
     private double lengthOfServiceNumeric;
     private String originalHireDate;
@@ -62,7 +62,7 @@ public class TalentMovementSheet {
     private boolean isWorkingCountryChange;
     private String workingCountryAsOfStartDate;
     private String workingCountryAsOfEndDate;
-    private String isJobFunctionChange;
+    private boolean isJobFunctionChange;
     private String jobFunctionAsOfStartDate;
     private String jobFunctionAsOfEndDate;
     private boolean isSectorChange;
@@ -244,11 +244,11 @@ public class TalentMovementSheet {
         this.MRC = MRC;
     }
 
-    public String getTimeInPosition() {
+    public double getTimeInPosition() {
         return timeInPosition;
     }
 
-    public void setTimeInPosition(String timeInPosition) {
+    public void setTimeInPosition(double timeInPosition) {
         this.timeInPosition = timeInPosition;
     }
 
@@ -564,11 +564,11 @@ public class TalentMovementSheet {
         this.workingCountryAsOfEndDate = workingCountryAsOfEndDate;
     }
 
-    public String getIsJobFunctionChange() {
+    public boolean getIsJobFunctionChange() {
         return isJobFunctionChange;
     }
 
-    public void setIsJobFunctionChange(String isJobFunctionChange) {
+    public void setIsJobFunctionChange(boolean isJobFunctionChange) {
         this.isJobFunctionChange = isJobFunctionChange;
     }
 

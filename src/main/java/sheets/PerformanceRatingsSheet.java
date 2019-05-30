@@ -8,7 +8,7 @@ public class PerformanceRatingsSheet {
     public String supervisoryOrganization;
     public boolean includeSubordinateOrganizations;
     public boolean excludeUnionMembers;
-    public List<PerformanceRating> performanceRatingList;
+    public PerformanceRating performanceRating;
 
     public String getSupervisoryOrganization() {
         return supervisoryOrganization;
@@ -34,11 +34,11 @@ public class PerformanceRatingsSheet {
         this.excludeUnionMembers = excludeUnionMembers;
     }
 
-    public List<PerformanceRating> getPerformanceRatingList() {
-        return performanceRatingList;
+    public PerformanceRating getPerformanceRating() {
+        return performanceRating;
     }
 
-    public void setPerformanceRatingList(List<PerformanceRating> performanceRatingList) {
-        this.performanceRatingList = performanceRatingList;
+    public void setPerformanceRating(PerformanceRating performanceRating) {
+        this.performanceRating = performanceRating;
     }
 }
