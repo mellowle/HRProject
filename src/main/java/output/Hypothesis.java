@@ -51,4 +51,15 @@ public class Hypothesis {
     public void setMovement(Movement movement) {
         this.movement = movement;
     }
+
+    @Override
+    public String toString() {
+        return "Hypothesis{" +
+                "WWID='" + WWID + '\'' +
+                ", demoGraphics=" + demoGraphics.getJobLevel() +
+                ", compensation=" + compensation.getBonusPaid() +
+                ", performance=" + performance.getResultsRating() +
+                ", movement=" + movement.isSectorMovements() +
+                '}';
+    }
 }

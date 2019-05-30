@@ -859,4 +859,16 @@ public class TalentMovementSheet {
     public void setMrcAsOfEndDate(String mrcAsOfEndDate) {
         this.mrcAsOfEndDate = mrcAsOfEndDate;
     }
+
+    @Override
+    public String toString() {
+        return "TalentMovementSheet{" +
+                "timeInPosition=" + timeInPosition +
+                ", lengthOfServiceNumeric=" + lengthOfServiceNumeric +
+                ", isRegionChange=" + isRegionChange +
+                ", isWorkingCountryChange=" + isWorkingCountryChange +
+                ", isJobFunctionChange=" + isJobFunctionChange +
+                ", isSectorChange=" + isSectorChange +
+                '}';
+    }
 }

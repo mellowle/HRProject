@@ -183,4 +183,15 @@ public class PerformanceRating {
     public void setRegion(String region) {
         this.region = region;
     }
+
+    @Override
+    public String toString() {
+        return "PerformanceRating{" +
+                "reviewPeriodStartDate=" + reviewPeriodStartDate +
+                ", reviewPeriodEndDate=" + reviewPeriodEndDate +
+                ", ResultsRating='" + ResultsRating + '\'' +
+                ", LeadershipRating='" + LeadershipRating + '\'' +
+                ", overallRating='" + overallRating + '\'' +
+                '}';
+    }
 }

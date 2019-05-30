@@ -1,17 +1,16 @@
 package adapters;
 
-import com.sun.tools.internal.jxc.ap.Const;
-import com.sun.tools.javac.code.Attribute;
 import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
 import sheets.PerformanceRatingsSheet;
 import sheets.model.PerformanceRating;
 
 public class PerformanceRatingsSheetAdapter {
 
     public static PerformanceRatingsSheet toDomain(Row row) {
-        return setProperties(row);
+        if (row != null) {
+            return setProperties(row);
+        }
+        return null;
     }
 
     private static PerformanceRatingsSheet setProperties(Row row) {

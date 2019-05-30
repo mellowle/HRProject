@@ -181,4 +181,12 @@ public class EducationSheet {
     public void setHighestDegreeReceived(boolean highestDegreeReceived) {
         isHighestDegreeReceived = highestDegreeReceived;
     }
+
+    @Override
+    public String toString() {
+        return "EducationSheet{" +
+                "highestDegreeReceived='" + highestDegreeReceived + '\'' +
+                ", schoolName='" + schoolName + '\'' +
+                '}';
+    }
 }

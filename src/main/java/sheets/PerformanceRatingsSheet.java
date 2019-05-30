@@ -41,4 +41,11 @@ public class PerformanceRatingsSheet {
     public void setPerformanceRating(PerformanceRating performanceRating) {
         this.performanceRating = performanceRating;
     }
+
+    @Override
+    public String toString() {
+        return "PerformanceRatingsSheet{" +
+                "performanceRating=" + performanceRating +
+                '}';
+    }
 }

@@ -296,4 +296,18 @@ public class EmployeeDemographcisSheet {
     public void setPrimaryPositionisJobExempt(boolean primaryPositionisJobExempt) {
         this.primaryPositionisJobExempt = primaryPositionisJobExempt;
     }
+
+    @Override
+    public String toString() {
+        return "EmployeeDemographcisSheet{" +
+                "wwwid='" + wwwid + '\'' +
+                ", employeePayGrade=" + employeePayGrade +
+                ", locationCode='" + locationCode + '\'' +
+                ", position='" + position + '\'' +
+                ", jobProfile='" + jobProfile + '\'' +
+                ", jobProfileID='" + jobProfileID + '\'' +
+                ", sector='" + sector + '\'' +
+                ", lengthOfServiceInYearsIncludingPartialYearPosition=" + lengthOfServiceInYearsIncludingPartialYearPosition +
+                '}';
+    }
 }

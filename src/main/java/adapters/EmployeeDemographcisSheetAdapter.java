@@ -1,16 +1,15 @@
 package adapters;
 
-import com.sun.tools.internal.jxc.ap.Const;
 import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
 import sheets.EmployeeDemographcisSheet;
 
 public class EmployeeDemographcisSheetAdapter {
 
     public static EmployeeDemographcisSheet toDomain(Row row) {
-
-        return setProperties(row);
+        if (row != null) {
+            return setProperties(row);
+        }
+        return null;
     }
 
     private static EmployeeDemographcisSheet setProperties(Row row) {
@@ -20,7 +19,7 @@ public class EmployeeDemographcisSheetAdapter {
         employeeDemographcisSheet.setInternationalAssignee(false);
         employeeDemographcisSheet.setFirstName(null);
         employeeDemographcisSheet.setLastName(null);
-        employeeDemographcisSheet.setEmployeePayGrade((int)row.getCell(Constants.payGrade).getNumericCellValue());
+        employeeDemographcisSheet.setEmployeePayGrade(Integer.valueOf(row.getCell(Constants.payGrade).getStringCellValue()));
         employeeDemographcisSheet.setLocationCode(row.getCell(Constants.locationCode).getStringCellValue());
         employeeDemographcisSheet.setPosition(row.getCell(Constants.position).getStringCellValue());
         employeeDemographcisSheet.setJobProfile(row.getCell(Constants.jobProfile).getStringCellValue());
@@ -36,7 +35,7 @@ public class EmployeeDemographcisSheetAdapter {
         employeeDemographcisSheet.setTimeInPosition(0);
         employeeDemographcisSheet.setManagerWWID(null);
         employeeDemographcisSheet.setManagerName(null);
-        employeeDemographcisSheet.setLengthOfServiceInYearsIncludingPartialYearPosition(row.getCell(Constants.sector).getNumericCellValue());
+        employeeDemographcisSheet.setLengthOfServiceInYearsIncludingPartialYearPosition(row.getCell(Constants.lengthOfYear).getNumericCellValue());
         employeeDemographcisSheet.setTimeInPositionCore(0);
         employeeDemographcisSheet.setOriginalHireDate(null);
         employeeDemographcisSheet.setHireDate(null);
@@ -58,6 +57,7 @@ public class EmployeeDemographcisSheetAdapter {
         public static final int position = 12;
         public static final int jobProfile = 14;
         public static final int jobProfileID = 15;
-        public static final int sector = 32;
+        public static final int sector = 26;
+        public static final int lengthOfYear = 32;
     }
 }

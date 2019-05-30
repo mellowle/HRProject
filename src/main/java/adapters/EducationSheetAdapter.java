@@ -1,18 +1,18 @@
 package adapters;
 
-import com.sun.tools.internal.jxc.ap.Const;
 import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
 import sheets.EducationSheet;
 
 public class EducationSheetAdapter {
 
     public static EducationSheet toDomain(Row row) {
-        return setProperties(row);
+        if (row != null) {
+            return setProperties(row);
+        }
+        return null;
     }
 
-    private  static EducationSheet setProperties(Row row) {
+    private static EducationSheet setProperties(Row row) {
         EducationSheet educationSheet = new EducationSheet();
 
         educationSheet.setWWID(null);

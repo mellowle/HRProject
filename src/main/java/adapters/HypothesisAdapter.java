@@ -12,16 +12,13 @@ import sheets.TalentMovementSheet;
 
 public class HypothesisAdapter {
 
-    public Hypothesis toDomain(EmployeeDemographcisSheet ed, EducationSheet e, PerformanceRatingsSheet pr,
+    public static void toDomain(Hypothesis h, EmployeeDemographcisSheet ed, EducationSheet e, PerformanceRatingsSheet pr,
                                TalentMovementSheet tm) {
-        return setProperties(ed, e, pr, tm);
+        setProperties(h, ed, e, pr, tm);
     }
 
-    private Hypothesis setProperties(EmployeeDemographcisSheet ed, EducationSheet e, PerformanceRatingsSheet pr,
+    private static void setProperties(Hypothesis h, EmployeeDemographcisSheet ed, EducationSheet e, PerformanceRatingsSheet pr,
                                      TalentMovementSheet tm) {
-        Hypothesis hypothesis = new Hypothesis();
-
-        String WWID = null;
 
         DemoGraphics demoGraphics = new DemoGraphics();
         demoGraphics.setJobLevel(ed.getEmployeePayGrade());
@@ -66,12 +63,9 @@ public class HypothesisAdapter {
         movement.setDifferentExperience(false);
         movement.setExternalJobHistoryList(null);
 
-        hypothesis.setWWID(WWID);
-        hypothesis.setDemoGraphics(demoGraphics);
-        hypothesis.setCompensation(compensation);
-        hypothesis.setPerformance(performance);
-        hypothesis.setMovement(movement);
-
-        return hypothesis;
+        h.setDemoGraphics(demoGraphics);
+        h.setCompensation(compensation);
+        h.setPerformance(performance);
+        h.setMovement(movement);
     }
 }
