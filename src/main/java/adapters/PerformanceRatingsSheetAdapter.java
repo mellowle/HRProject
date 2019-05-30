@@ -10,11 +10,11 @@ import sheets.model.PerformanceRating;
 
 public class PerformanceRatingsSheetAdapter {
 
-    public PerformanceRatingsSheet toDomain(Row row) {
+    public static PerformanceRatingsSheet toDomain(Row row) {
         return setProperties(row);
     }
 
-    private PerformanceRatingsSheet setProperties(Row row) {
+    private static PerformanceRatingsSheet setProperties(Row row) {
         PerformanceRatingsSheet performanceRatingsSheet = new PerformanceRatingsSheet();
 
         performanceRatingsSheet.setSupervisoryOrganization(null);

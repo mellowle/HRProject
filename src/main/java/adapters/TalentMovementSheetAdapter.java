@@ -9,11 +9,11 @@ import sheets.TalentMovementSheet;
 
 public class TalentMovementSheetAdapter {
 
-    public TalentMovementSheet toDomain(Row row) {
+    public static TalentMovementSheet toDomain(Row row) {
         return setProperties(row);
     }
 
-    private TalentMovementSheet setProperties(Row row) {
+    private static TalentMovementSheet setProperties(Row row) {
         TalentMovementSheet talentMovementSheet = new TalentMovementSheet();
 
         talentMovementSheet.setWWID(null);

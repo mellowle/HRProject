@@ -8,19 +8,19 @@ import sheets.EmployeeDemographcisSheet;
 
 public class EmployeeDemographcisSheetAdapter {
 
-    public EmployeeDemographcisSheet toDomain(Row row) {
+    public static EmployeeDemographcisSheet toDomain(Row row) {
 
         return setProperties(row);
     }
 
-    private EmployeeDemographcisSheet setProperties(Row row) {
+    private static EmployeeDemographcisSheet setProperties(Row row) {
         EmployeeDemographcisSheet employeeDemographcisSheet = new EmployeeDemographcisSheet();
 
         employeeDemographcisSheet.setWwwid(null);
         employeeDemographcisSheet.setInternationalAssignee(false);
         employeeDemographcisSheet.setFirstName(null);
         employeeDemographcisSheet.setLastName(null);
-        employeeDemographcisSheet.setEmployeePayGrade(row.getCell(Constants.payGrade).getStringCellValue());
+        employeeDemographcisSheet.setEmployeePayGrade((int)row.getCell(Constants.payGrade).getNumericCellValue());
         employeeDemographcisSheet.setLocationCode(row.getCell(Constants.locationCode).getStringCellValue());
         employeeDemographcisSheet.setPosition(row.getCell(Constants.position).getStringCellValue());
         employeeDemographcisSheet.setJobProfile(row.getCell(Constants.jobProfile).getStringCellValue());

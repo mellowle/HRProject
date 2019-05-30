@@ -8,11 +8,11 @@ import sheets.EducationSheet;
 
 public class EducationSheetAdapter {
 
-    public EducationSheet toDomain(Row row) {
+    public static EducationSheet toDomain(Row row) {
         return setProperties(row);
     }
 
-    private EducationSheet setProperties(Row row) {
+    private  static EducationSheet setProperties(Row row) {
         EducationSheet educationSheet = new EducationSheet();
 
         educationSheet.setWWID(null);
