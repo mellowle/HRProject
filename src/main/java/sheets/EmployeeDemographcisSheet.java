@@ -11,7 +11,7 @@ public class EmployeeDemographcisSheet {
     public boolean isInternationalAssignee;
     public String firstName;
     public String lastName;
-    public int employeePayGrade;
+    public String employeePayGrade;
     public String locationCode;
     public String position;
     public String jobProfile;
@@ -72,11 +72,11 @@ public class EmployeeDemographcisSheet {
         this.lastName = lastName;
     }
 
-    public int getEmployeePayGrade() {
+    public String getEmployeePayGrade() {
         return employeePayGrade;
     }
 
-    public void setEmployeePayGrade(int employeePayGrade) {
+    public void setEmployeePayGrade(String employeePayGrade) {
         this.employeePayGrade = employeePayGrade;
     }
 

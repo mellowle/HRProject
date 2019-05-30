@@ -1,17 +1,19 @@
 package adapters;
 
+import com.sun.tools.internal.jxc.ap.Const;
+import com.sun.tools.javac.code.Attribute;
+import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import sheets.TalentMovementSheet;
 
 public class TalentMovementSheetAdapter {
 
-    public TalentMovementSheet toDomain(Workbook workbook) {
-        Sheet sheet = workbook.getSheet("Talent Movement");
-        return setProperties(sheet);
+    public TalentMovementSheet toDomain(Row row) {
+        return setProperties(row);
     }
 
-    private TalentMovementSheet setProperties(Sheet sheet) {
+    private TalentMovementSheet setProperties(Row row) {
         TalentMovementSheet talentMovementSheet = new TalentMovementSheet();
 
         talentMovementSheet.setWWID(null);
@@ -32,8 +34,8 @@ public class TalentMovementSheetAdapter {
         talentMovementSheet.setWorkingCountry(null);
         talentMovementSheet.setInternationalAssignee(false);
         talentMovementSheet.setMRC(null);
-        talentMovementSheet.setTimeInPosition(null);
-        talentMovementSheet.setLengthOfService(0);
+        talentMovementSheet.setTimeInPosition(row.getCell(Constants.timeInPosition).getNumericCellValue());
+        talentMovementSheet.setLengthOfService(row.getCell(Constants.lengthOfService).getNumericCellValue());
         talentMovementSheet.setLengthOfServiceNumeric(0);
         talentMovementSheet.setOriginalHireDate(null);
         talentMovementSheet.setLatestHireDate(null);
@@ -66,16 +68,16 @@ public class TalentMovementSheetAdapter {
         talentMovementSheet.setWorkerActive(false);
         talentMovementSheet.setActiveStatus(false);
         talentMovementSheet.setOnLeave(false);
-        talentMovementSheet.setRegionChange(false);
+        talentMovementSheet.setRegionChange(row.getCell(Constants.isRegionChange).getBooleanCellValue());
         talentMovementSheet.setRegionAsOfStartDate(null);
         talentMovementSheet.setRegionAsOfEndDate(null);
-        talentMovementSheet.setWorkingCountryChange(false);
+        talentMovementSheet.setWorkingCountryChange(row.getCell(Constants.isCountryChange).getBooleanCellValue());
         talentMovementSheet.setWorkingCountryAsOfStartDate(null);
         talentMovementSheet.setWorkingCountryAsOfEndDate(null);
-        talentMovementSheet.setIsJobFunctionChange(false);
+        talentMovementSheet.setIsJobFunctionChange(row.getCell(Constants.isFunctionChang).getBooleanCellValue());
         talentMovementSheet.setJobFunctionAsOfStartDate(null);
         talentMovementSheet.setJobFunctionAsOfEndDate(null);
-        talentMovementSheet.setSectorChange(false);
+        talentMovementSheet.setSectorChange(row.getCell(Constants.isSectorChange).getBooleanCellValue());
         talentMovementSheet.setSectorAsOfStartDate(null);
         talentMovementSheet.setSectorAsOfEndDate(null);
         talentMovementSheet.setSupervisoryOrgHierarchyChange(false);
@@ -111,6 +113,15 @@ public class TalentMovementSheetAdapter {
         talentMovementSheet.setMrcAsOfEndDate(null);
 
         return talentMovementSheet;
+    }
+
+    public class Constants {
+        public static final int timeInPosition = 27;
+        public static final int lengthOfService = 29;
+        public static final int isRegionChange = 61;
+        public static final int isCountryChange = 64;
+        public static final int isFunctionChang = 67;
+        public static final int isSectorChange = 70;
     }
 
 }
