@@ -62,7 +62,7 @@ public class TalentMovementSheet {
     private boolean isWorkingCountryChange;
     private String workingCountryAsOfStartDate;
     private String workingCountryAsOfEndDate;
-    private String isJobFunctionChange;
+    private boolean isJobFunctionChange;
     private String jobFunctionAsOfStartDate;
     private String jobFunctionAsOfEndDate;
     private boolean isSectorChange;
@@ -564,11 +564,11 @@ public class TalentMovementSheet {
         this.workingCountryAsOfEndDate = workingCountryAsOfEndDate;
     }
 
-    public String getIsJobFunctionChange() {
+    public boolean getIsJobFunctionChange() {
         return isJobFunctionChange;
     }
 
-    public void setIsJobFunctionChange(String isJobFunctionChange) {
+    public void setIsJobFunctionChange(boolean isJobFunctionChange) {
         this.isJobFunctionChange = isJobFunctionChange;
     }
 
