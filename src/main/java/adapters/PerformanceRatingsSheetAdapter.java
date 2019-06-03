@@ -14,6 +14,7 @@ public class PerformanceRatingsSheetAdapter {
     }
 
     private static PerformanceRatingsSheet setProperties(Row row) {
+        System.err.println(row.getCell(2).getStringCellValue());
         PerformanceRatingsSheet performanceRatingsSheet = new PerformanceRatingsSheet();
 
         performanceRatingsSheet.setSupervisoryOrganization(null);
@@ -21,10 +22,19 @@ public class PerformanceRatingsSheetAdapter {
         performanceRatingsSheet.setExcludeUnionMembers(false);
 
         PerformanceRating performanceRating = new PerformanceRating();
+        System.err.println(row.getCell(Constants.reviewPeirodStart).getDateCellValue());
+
         performanceRating.setReviewPeriodStartDate(row.getCell(Constants.reviewPeirodStart).getDateCellValue());
-        performanceRating.setReviewPeriodEndDate(row.getCell(Constants.reviewPeirodEnd).getDateCellValue());
+        System.err.println(row.getCell(Constants.resultRating));
+
         performanceRating.setResultsRating(row.getCell(Constants.resultRating).getStringCellValue());
+        System.err.println(row.getCell(Constants.reviewPeirodEnd).getDateCellValue());
+
+        performanceRating.setReviewPeriodEndDate(row.getCell(Constants.reviewPeirodEnd).getDateCellValue());
+        System.err.println(row.getCell(Constants.reviewOverallRating));
+
         performanceRating.setOverallRating(row.getCell(Constants.reviewOverallRating).getStringCellValue());
+        System.err.println(row.getCell(Constants.reviewLeadershipRating).getStringCellValue());
         performanceRating.setLeadershipRating(row.getCell(Constants.reviewLeadershipRating).getStringCellValue());
         performanceRatingsSheet.setPerformanceRating(performanceRating);
 

@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Set;
 
 public class FileUtil {
-    public static List<String> getFIlePaths(String path, String fileExtension) {
+    public static List<String> getFilePaths(String path, String fileExtension) {
         List<String> filePaths = new ArrayList<>();
         File file = new File(path);
         File[] files = file.listFiles();
@@ -40,7 +40,7 @@ public class FileUtil {
     }
 
     public static Set<String> getWWIDSet() throws Exception {
-        List<String> filePaths = FileUtil.getFIlePaths(Constants.INPUT_FILE_PATH, Constants.EXCELX_FILE_EXTENSION);
+        List<String> filePaths = FileUtil.getFilePaths(Constants.INPUT_FILE_PATH, Constants.EXCELX_FILE_EXTENSION);
                 filePaths.stream().forEach(System.err::println);
 
         Set<String> wwidSet = new HashSet<>();
@@ -53,7 +53,7 @@ public class FileUtil {
             for (int i = 1; i <= sheet.getLastRowNum(); i++) {
                 row = sheet.getRow(i);
                 if (row != null) {
-                    //                    System.err.println(row.getCell(getWWIDColumn(filePath)).getStringCellValue());
+//                                        System.err.println(row.getCell(getWWIDColumn(filePath)).getStringCellValue());
                     wwidSet.add(row.getCell(getWWIDColumn(filePath)).getStringCellValue());
                     //                    wwidList.add(row.getCell(getWWIDColumn(filePath)).getStringCellValue());
                 }
@@ -103,7 +103,7 @@ public class FileUtil {
     }
 
     public static RelatedRows getRelatedRows(Hypothesis hypothesis) throws Exception {
-        List<String> filePaths = FileUtil.getFIlePaths(Constants.INPUT_FILE_PATH, Constants.EXCELX_FILE_EXTENSION);
+        List<String> filePaths = FileUtil.getFilePaths(Constants.INPUT_FILE_PATH, Constants.EXCELX_FILE_EXTENSION);
         String wwid = hypothesis.getWWID();
         RelatedRows relatedRows = new RelatedRows();
         Row row;
